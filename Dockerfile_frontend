@@ -13,7 +13,7 @@ RUN npm install
 # Copy frontend source code
 COPY quirknotes/frontend ./
 
-# Build frontend
+# Build frontenddsadas
 RUN npm run build
 
 # Use a lightweight webserver to serve frontend assets
