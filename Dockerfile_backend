@@ -1,26 +1,20 @@
-# Use the official Node.js image as the base image for frontend
+# Use the official Node.js image as the base image for backend
 FROM node:20.0.0-alpine AS backend
 
-# Set the working directory for frontend
+# Set the working directory for backend
 WORKDIR /app/quirknotes/backend
 
-# Copy frontend package files
+# Copy backend package files
 COPY quirknotes/backend/package*.json ./
 
 # Install backend dependencies
 RUN npm install
 
-# Copy frontend source code
+# Copy backend source code
 COPY quirknotes/backend ./
 
-# Build frontenddsadas
-#RUN npm run build
+# Expose port 4000 to serve the backend
+EXPOSE 4000
 
-# Build backend if necessary, or compile TypeScript to JavaScript, etc.
-#RUN npm run build
-
-# Expose the port the backend runs on
-EXPOSE 3001
-
-# Command to start the backend application
-CMD ["npm", "start"]
+# Command to start server
+CMD ["npm", "run", "dev"]
